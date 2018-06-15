@@ -1,0 +1,11 @@
+<div class="row">
+<div class="col-md-12">
+<div *ngFor="let user of users">
+  <div *ngIf="!isAdmin(user)" id="user" class="card text-white mb-3 flex-container bg-info">
+    <div class="card-header flex-item">{{ user.firstName }} {{ user.lastName }}</div>
+    <div class="card-body flex-item">
+      <h4 class="card-title flex-item">{{ user.email }}</h4>
+      <p class="card-text flex-item"><img style="height: 160x; width: 40%; display: block;" src= "{{ user.image }}" alt="Book cover" title="{{ user.firstName }}"></p>
+    </div>
+  </div>
+</div>

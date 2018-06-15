@@ -1,0 +1,33 @@
+<article>
+<div class="card mb-3">
+        <h3 class="card-header"><span id="text">Title:</span> {{ book.title | uppercase }} &reg;</h3>
+        <div class="card-body">
+          <h5 class="card-title"><span id="text">Author:</span> {{ book.author }}</h5>
+          <h6 class="card-subtitle text-muted"><span id="text">Price:</span> {{ book.price | currency: "usd": 3 }} </h6>
+        </div>
+        <img style="height: 200px; width: 12%; display: block;" src= "{{ book.image }}" alt="{{ book.title }}" title="{{ book.title }}">
+        <div class="card-body">
+          <p class="card-text">          
+            <span id="text">Genre:</span> {{ book.genre }}<br> 
+            <span id="text">About:</span> {{ book.about }}<br>
+            <span id="text">User:</span> {{ book.username }}
+          </p>
+        </div>
+        <div class="card-body">
+            <button *ngIf="!belongsToUser()" class="card-link btn btn-lg btn-success" (click)="onBuy()">Buy</button>
+            <button *ngIf="isAdmin()" class="card-link btn btn-lg btn-warning" (click)="onUpdate()">Update</button>
+            <button *ngIf="isAdmin()" class="card-link btn btn-lg btn-danger" (click)="onDelete()">Delete</button>
+            <button *ngIf="!belongsToUser()" class="card-link btn btn-lg btn-danger" (click)="onComment()">Add comment</button>
+          </div>
+        <div class="card-footer text-muted">
+          <span id="text">Published:</span> {{ book.publishDate | date:"d/M/y" }}
+                       {{ book.publishDate | date:"shortTime" }}
+        </div>
+</div>
+</article>
+<div class="row">
+  <div class="col-sm-12">
+    <br><h2>Comments:</h2>
+    <app-comment [comment]="comment" *ngFor="let comment of comments"></app-comment>
+  </div>
+</div>

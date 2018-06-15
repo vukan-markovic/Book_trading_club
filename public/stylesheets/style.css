@@ -1,0 +1,56 @@
+body {
+  padding: 2em;
+  font-family: 'EB Garamond'; 
+  background-image: url(http://evonyunites.com/wp-content/uploads/2011/09/old-paper2.jpg);
+}
+
+a {
+  color: #00B7FF;
+  cursor: pointer;
+}
+
+a:hover, a:active {
+  color: #00B7FF;
+  text-decoration: underline;
+}
+
+a.danger {
+  color: red;
+}
+
+.spacing {
+  margin-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.loader {
+  border: 16px solid green;
+  border-top: 16px solid greenyellow;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { 
+      transform: rotate(0deg); 
+  }
+  100% { 
+      transform: rotate(360deg); 
+  }
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

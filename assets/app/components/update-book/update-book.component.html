@@ -1,0 +1,40 @@
+<form id="updateForm" (ngSubmit)="onSubmit()" #f="ngForm">
+  <fieldset>
+    <legend>Update a book</legend>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input [ngModel]="book?.title" class="form-control" id="title" name="title" placeholder="Enter the title of the book" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input [ngModel]="book?.price" class="form-control" id="price" name="price" placeholder="Enter the price of the book" type="number" required>
+    </div>
+    <div class="form-group">
+      <label for="genres">Genre:</label>
+      <select [ngModel]="book?.genre" class="form-control" name="genre" id="genres" required>
+        <option>Arts &and; Photography</option>
+        <option>Biographies &and; Memoirs</option>
+        <option>Business &and; Investing</option>
+        <option>Children's Books</option>
+        <option>History</option>
+        <option>Literature &and; Suspense</option>
+        <option>Romance</option>
+        <option>Sci-Fi &and; Fantasy</option>
+        <option>Teens &and; Young Adult</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="author">Author:</label>
+        <input [ngModel]="book?.author" name="author" class="form-control" id="author" placeholder="Enter the author of the book" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="about">Write a couple of words about the book if you like:</label>
+      <textarea [ngModel]="book?.about" name="about" class="form-control" id="about" rows="3" placeholder="Your comment about book"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author">Image:</label>
+      <input [ngModel]="book?.image" name="image" class="form-control" id="image" placeholder="Enter the image url of the book cover" type="text">
+  </div>
+    <button class="btn btn-lg btn-warning" type="submit">Update a book</button>
+    </fieldset>
+</form>

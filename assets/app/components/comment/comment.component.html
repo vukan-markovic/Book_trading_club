@@ -1,0 +1,9 @@
+<div id="comment" class="card text-white mb-3 flex-container bg-warning">
+    <div class="card-header flex-item"><span class="badge badge-success">{{ comment.tag }}</span></div>
+    <div class="card-body flex-item">
+      <h4 class="card-title flex-item">{{ comment.content }} </h4>
+      <p class="card-text flex-item">User: {{ comment.username }}</p>
+      <p class="card-text flex-item">Grade: {{ comment.grade }}</p>
+      <p class="card-text flex-item">Published: {{ comment.publishDate | date }}</p>
+    </div>
+</div>

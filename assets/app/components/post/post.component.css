@@ -1,0 +1,15 @@
+.badge {
+    width: 10%;
+}
+
+#text {
+    color: burlywood;
+    font-weight: bold;
+}
+
+#post {
+    cursor: pointer;
+    float: left;
+    width: 18rem;
+    margin: 4px;
+}

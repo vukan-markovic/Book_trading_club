@@ -1,0 +1,22 @@
+<form id="f" (ngSubmit)="onSubmit()" #f="ngForm">
+  <fieldset>
+    <legend>Add a new comment</legend>
+    <div class="form-group">
+      <label for="author">This comment is about:</label>
+      <select [ngModel]="comment?.tag" class="form-control" name="tag" id="tag" required>
+        <option selected>Book</option>
+        <option>User</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <input id="content" name="content" [ngModel]="comment?.content" class="form-control" placeholder="Enter the content of the comment" type="text" required max="40">
+    </div>
+    <div class="form-group">
+      <label for="grade">Grade:</label>
+      <input id="grade" name="grade" [ngModel]="comment?.grade" class="form-control" placeholder="Enter the grade" type="number" required min="0" max="10">
+    </div>
+    <button type="button" class="btn btn-lg btn-danger" (click)="onClear()">Clear</button>
+    <button class="btn btn-lg btn-success" type="submit">Add a comment</button>
+  </fieldset>
+</form>

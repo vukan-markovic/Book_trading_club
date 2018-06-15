@@ -1,0 +1,12 @@
+<div id="book" (click)="bookDetails()" *ngIf="belongsToUser()">   
+    <span class="badge badge-success">{{ book.title }}</span>
+    <span class="badge badge-info">{{ book.price | currency }}</span> 
+    <span class="badge badge-success">{{ book.author }}</span>
+    <span class="badge badge-danger">{{ book.genre }}</span>
+    <span class="badge badge-info">{{ book.publishDate | date:"d/M/y" }}</span>
+    <div class="btn-group">
+        &nbsp;&nbsp;<button class="btn btn-warning" (click)="onUpdate(book)">Update</button>
+        <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+        <button (click)="showInfo()" class="btn btn-info" *ngIf='isBookSolded()'>Solded</button>
+    </div>
+</div>
