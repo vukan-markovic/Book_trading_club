@@ -1,0 +1,23 @@
+<article>
+  <div class="card mb-3 bg-danger">
+    <h3 class="card-header"><span id="text">User: </span> {{ user.firstName }} {{user.lastName}}</h3>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <h6 class="card-subtitle text-muted"></h6>
+      </div>
+    <div class="card-body">
+      <p class="card-text">    
+        <img id="profilePicture" width="40%" height="60%" src="{{ user.image }}" alt="Profile picture" title="Profile picture">
+      </p>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-footer text-muted">
+      {{ user.country }}&nbsp;&nbsp;
+      {{ user.city }}&nbsp;&nbsp;
+      {{ user.postalCode }}&nbsp;&nbsp;
+      {{ user.address }}&nbsp;&nbsp;
+      {{ user.phoneNumber }}
+    </div>
+  </div> 
+</article>

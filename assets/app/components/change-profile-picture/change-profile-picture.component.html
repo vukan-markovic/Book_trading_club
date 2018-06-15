@@ -1,0 +1,10 @@
+<form id="f" (ngSubmit)="onSubmit()" #f="ngForm">
+  <fieldset>
+    <legend>Update a profile picture</legend>
+    <div class="form-group">
+      <label for="title">Picture:</label>
+      <input [ngModel]="user?.image" class="form-control" id="image" name="image" placeholder="Enter the url of the image" type="url" required>
+      <br><br><button  class="btn btn-lg btn-warning" type="submit">Change</button>
+    </div>
+    </fieldset>
+</form>

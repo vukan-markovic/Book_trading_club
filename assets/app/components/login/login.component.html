@@ -1,0 +1,15 @@
+<div class="col-md-3 col-md-offset-2 content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-signin">
+        <h2 class="form-signin-heading">Login</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input name="email" type="email" id="email" class="form-control" formControlName="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password" required autocomplete="current-password">
+        </div>
+        <button class="btn btn-success btn-lg" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    <br>Not registered. Click <span (click)="register()">here</span> to join us!
+</div>

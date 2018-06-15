@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="jumbotron">
+      <img id="profilePicture" width="40%" height="60%" src="{{ user.image }}" alt="Profile picture" title="Profile picture">
+      <br><br><button id="changeProfilePicture" class="btn btn-info btn-sm btn-block" (click)=changeProfilePicture()>Change profile picture</button>
+      <br><br><div><span class="text-info">{{ user.firstName }}</span></div>
+      <div><span class="text-danger">{{ user.lastName }}</span></div>
+      <div><span class="text-success">{{ user.email }}</span></div>
+    </div>
+    <br><button id="btnAddBook" class="btn btn-primary btn-lg btn-block" (click)=addBook()>Add a book for sale</button>
+    <button id="btnAddBook" class="btn btn-default btn-lg btn-block" (click)=buyBook()>Buy book</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <br><h2>Books:</h2>
+    <app-book [book]="book" *ngFor="let book of books"></app-book>
+  </div>
+</div>
