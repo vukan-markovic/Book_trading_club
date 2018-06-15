@@ -10,10 +10,11 @@
   "author": "Vukan Marković",
   "license": "MIT",
   "private": true,
+  "main": "app.js",
   "repository": {
     "Book-trading-club": "https://github.com/Vukan-Markovic/Book-trading-club.git"
   },
-  "homepage": "https://blooming-river-92176.herokuapp.com/",
+  "homepage": "http://booktradingclub.us.openode.io/",
   "engines": {
     "node": "9.10.1"
   },
