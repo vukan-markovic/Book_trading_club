@@ -14,7 +14,7 @@ export class AuthService {
     register(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/user/register', body, {headers: headers})
+        return this.http.post('user/register', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -25,7 +25,7 @@ export class AuthService {
     login(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/user/login', body, {headers: headers})
+        return this.http.post('user/login', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -42,7 +42,7 @@ export class AuthService {
     }
 
     getUser(userID: string) {
-        return this.http.get('http://localhost:3000/user/' + userID)
+        return this.http.get('user/' + userID)
             .map((response: Response) => {
                 return response.json().obj;
             })
@@ -53,7 +53,7 @@ export class AuthService {
     }
 
     getUsers() {
-        return this.http.get('http://localhost:3000/user/')
+        return this.http.get('user/')
             .map((response: Response) => {
                 return response.json().obj;
             })
@@ -67,7 +67,7 @@ export class AuthService {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/user/' + localStorage.getItem('userId') + token, body, {headers: headers})
+        return this.http.patch('user/' + localStorage.getItem('userId') + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());

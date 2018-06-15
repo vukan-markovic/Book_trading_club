@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": true,
   "repository": {"Book-trading-club":"https://github.com/Vukan-Markovic/Book-trading-club.git"},
-  "homepage": "http://localhost:3000",
+  "homepage": "https://blooming-river-92176.herokuapp.com/",
   "scripts": {
     "start": "node ./bin/www",
     "build": "del-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",

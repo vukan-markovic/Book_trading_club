@@ -16,7 +16,7 @@ export class PostService {
         const body = JSON.stringify(post);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.post('http://localhost:3000/post' + token, body, {headers: headers})
+        return this.http.post('post/' + token, body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
                 const post = new Post(
@@ -35,7 +35,7 @@ export class PostService {
     }
 
     getPosts() {
-        return this.http.get('http://localhost:3000/post')
+        return this.http.get('post/')
             .map((response: Response) => {
                 const posts = response.json().obj;
                 let transformedPosts: Post[] = [];
@@ -58,7 +58,7 @@ export class PostService {
     }
 
     getPost(postId : string){
-        return this.http.get('http://localhost:3000/post/' + postId)
+        return this.http.get('post/' + postId)
             .map((response: Response) => {
                 const post = response.json().obj;
                 let transformedPost: Post = new Post(
@@ -79,7 +79,7 @@ export class PostService {
     deletePost(post: Post) {
         this.posts.splice(this.posts.indexOf(post), 1);
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.delete('http://localhost:3000/post/' + post.postId + token)
+        return this.http.delete('post/' + post.postId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -91,7 +91,7 @@ export class PostService {
         const body = JSON.stringify(post);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/post/' + post.postId + token, body, {headers: headers})
+        return this.http.patch('post/' + post.postId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());

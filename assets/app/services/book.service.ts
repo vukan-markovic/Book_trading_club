@@ -15,7 +15,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.post('http://localhost:3000/book' + token, body, {headers: headers})
+        return this.http.post('book/' + token, body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
                 const book = new Book(
@@ -42,7 +42,7 @@ export class BookService {
     }
 
     getBooks() {
-        return this.http.get('http://localhost:3000/book')
+        return this.http.get('book/')
             .map((response: Response) => {
                 const books = response.json().obj;
                 let transformedBooks: Book[] = [];
@@ -72,7 +72,7 @@ export class BookService {
     }
 
     getBooksHome() {
-        return this.http.get('http://localhost:3000/home')
+        return this.http.get('home/')
             .map((response: Response) => {
                 const books = response.json().obj;
                 let transformedBooks: Book[] = [];
@@ -101,7 +101,7 @@ export class BookService {
     }
 
     getBook(bookId : string) {
-        return this.http.get('http://localhost:3000/book/' + bookId)
+        return this.http.get('book/' + bookId)
             .map((response: Response) => {
                 const book = response.json().obj;
                 let transformedBook: Book = new Book(
@@ -129,7 +129,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/book/' + book.bookId + token, body, {headers: headers})
+        return this.http.patch('book/' + book.bookId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -141,7 +141,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/book/admin/' + book.bookId + token, body, {headers: headers})
+        return this.http.patch('admin/' + book.bookId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -153,7 +153,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('http://localhost:3000/book/sold/' + book.bookId + token, body, {headers: headers})
+        return this.http.patch('sold/' + book.bookId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -164,7 +164,7 @@ export class BookService {
     deleteBook(book: Book) {
         this.books.splice(this.books.indexOf(book), 1);
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.delete('http://localhost:3000/book/' + book.bookId + token)
+        return this.http.delete('book/' + book.bookId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -175,7 +175,7 @@ export class BookService {
     deleteBookAdmin(book: Book) {
         this.books.splice(this.books.indexOf(book), 1);
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.delete('http://localhost:3000/book/admin/' + book.bookId + token)
+        return this.http.delete('book/admin/' + book.bookId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());

@@ -16,7 +16,7 @@ export class CommentService {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.post('http://localhost:3000/comment/' + bookId + token, body, {headers: headers})
+        return this.http.post('comment/' + bookId + token, body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
                 const comment = new Comment(
@@ -37,7 +37,7 @@ export class CommentService {
     }
 
     getComments(bookId: string) {
-        return this.http.get('http://localhost:3000/comment/' + bookId)
+        return this.http.get('comment/' + bookId)
             .map((response: Response) => {
                 const comments = response.json().obj;
                 let transformedComments: Comment[] = [];
