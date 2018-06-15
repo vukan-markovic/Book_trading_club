@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit()" #f="ngForm">
   <fieldset>
   <legend>Publish a new post</legend>
   <div class="form-group">
@@ -11,6 +11,6 @@
   </div>
   <p id="warning" class="form-text text-muted">We want just to notify you that this is forum about literature and books and all non-topic posts will be deleted!</p>
   <button class="btn btn-lg btn-success" type="submit">Post</button>
-  <button type="button" class="btn btn-danger btn-lg" (click)="onClear(f)">Clear</button>
+  <button type="button" class="btn btn-danger btn-lg" (click)="onClear()" [disabled]="!form.valid">Clear</button>
   </fieldset>
 </form>

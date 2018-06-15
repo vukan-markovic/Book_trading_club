@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
@@ -12,6 +12,7 @@ import { User } from '../../models/user.model';
 })
 
 export class PublishComponent implements OnInit {
+    @ViewChild('f') form : NgForm;
     post: Post;
     user: any = {};
 
@@ -28,16 +29,16 @@ export class PublishComponent implements OnInit {
             );
     }
 
-    onSubmit(form: NgForm) {
-        const post = new Post(form.value.title, form.value.content, this.user.firstName);
+    onSubmit() {
+        const post = new Post(this.form.value.title, this.form.value.content, this.user.firstName);
         this.postService.addPost(post)
             .subscribe(data => console.log(data), error => console.error(error));
-        form.resetForm();
+        this.form.resetForm();
         this.router.navigate(['/blog']);
     }
 
-    onClear(form: NgForm) {
+    onClear() {
         this.post = null;
-        form.resetForm();
+        this.form.resetForm();
     }
 } 
