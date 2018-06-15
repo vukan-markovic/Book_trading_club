@@ -17,6 +17,6 @@
       <input id="grade" name="grade" [ngModel]="comment?.grade" class="form-control" placeholder="Enter the grade" type="number" required min="0" max="10">
     </div>
     <button type="button" class="btn btn-lg btn-danger" (click)="onClear()">Clear</button>
-    <button class="btn btn-lg btn-success" type="submit">Add a comment</button>
+    <button class="btn btn-lg btn-success" type="submit" [disabled]="!form.valid">Add a comment</button>
   </fieldset>
 </form>

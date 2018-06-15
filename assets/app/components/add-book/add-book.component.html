@@ -37,6 +37,6 @@
       <a href="https://www.google.rs/search?tbm=isch&q={{f.value.title}}+book+cover" target="_blank">Get book cover</a>
     </div>
     <button type="button" class="btn btn-lg btn-danger" (click)="onClear()">Clear</button>
-    <button class="btn btn-lg btn-success" type="submit">Add a book</button>
+    <button class="btn btn-lg btn-success" type="submit" [disabled]="!form.valid">Add a book</button>
     </fieldset>
 </form>
