@@ -3,14 +3,16 @@
   <p class="lead">Here people interested in literature exchange their opinions</p>
   <hr class="my-4">
   <div class="row">
-    <div *ngIf="!isLoggedIn()" class="col-sm-6">
+    <div class="col-sm-4"></div>
+    <div *ngIf="!isLoggedIn()" class="col-sm-4">
       <p>If you want to join us in discussion you need to be registered!</p>
       <button (click)="onRegister()" class="btn btn-primary btn-lg">Register</button>
     </div>
-    <div *ngIf="isLoggedIn()" class="col-sm-6">
+    <div *ngIf="isLoggedIn()" class="col-sm-4">
         <p>Share your experiences with us! Publish a new post and take part at our forum</p>
         <button (click)="onPost()" class="btn btn-primary btn-lg">Post</button>
     </div>
+    <div class="col-sm-4"></div>
   </div>
 </div>
 <br>
