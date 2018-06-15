@@ -10,7 +10,7 @@
     <textarea id="content" name="content" class="form-control" [ngModel]="post?.content" rows="14" required></textarea>
   </div>
   <p id="warning" class="form-text text-muted">We want just to notify you that this is forum about literature and books and all non-topic posts will be deleted!</p>
-  <button class="btn btn-lg btn-success" type="submit">Post</button>
-  <button type="button" class="btn btn-danger btn-lg" (click)="onClear()" [disabled]="!form.valid">Clear</button>
+  <button class="btn btn-lg btn-success" type="submit" [disabled]="!form.valid">Post</button>
+  <button type="button" class="btn btn-danger btn-lg" (click)="onClear()">Clear</button>
   </fieldset>
 </form>
