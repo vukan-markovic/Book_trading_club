@@ -3,11 +3,11 @@
   <legend>Publish a new post</legend>
   <div class="form-group">
     <label for="title">Title of the post:</label>
-    <input type="text" id="title" name="title" class="form-control" [ngModel]="post?.title" rows="14">
+    <input type="text" id="title" name="title" class="form-control" [ngModel]="post?.title" rows="14" required>
   </div>
   <div class="form-group">
       <label for="content">Shares with us something interesting</label>
-    <textarea id="content" name="content" class="form-control" [ngModel]="post?.content" rows="14"></textarea>
+    <textarea id="content" name="content" class="form-control" [ngModel]="post?.content" rows="14" required></textarea>
   </div>
   <p id="warning" class="form-text text-muted">We want just to notify you that this is forum about literature and books and all non-topic posts will be deleted!</p>
   <button class="btn btn-lg btn-success" type="submit">Post</button>
