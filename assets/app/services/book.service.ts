@@ -72,7 +72,7 @@ export class BookService {
     }
 
     getBooksHome() {
-        return this.http.get('home/')
+        return this.http.get('https://blooming-river-92176.herokuapp.com/home/')
             .map((response: Response) => {
                 const books = response.json().obj;
                 let transformedBooks: Book[] = [];
