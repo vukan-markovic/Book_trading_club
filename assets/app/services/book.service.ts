@@ -72,7 +72,7 @@ export class BookService {
     }
 
     getBooksHome() {
-        return this.http.get('https://blooming-river-92176.herokuapp.com/home/')
+        return this.http.get('home/')
             .map((response: Response) => {
                 const books = response.json().obj;
                 let transformedBooks: Book[] = [];
@@ -141,7 +141,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('admin/' + book.bookId + token, body, {headers: headers})
+        return this.http.patch('book/admin/' + book.bookId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -153,7 +153,7 @@ export class BookService {
         const body = JSON.stringify(book);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.http.patch('sold/' + book.bookId + token, body, {headers: headers})
+        return this.http.patch('book/sold/' + book.bookId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
