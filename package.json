@@ -14,7 +14,7 @@
   "repository": {
     "Book-trading-club": "https://github.com/Vukan-Markovic/Book-trading-club.git"
   },
-  "homepage": "http://booktradingclub.us.openode.io/",
+  "homepage": "https://bookclubtrading.herokuapp.com/",
   "engines": {
     "node": "9.10.1"
   },
