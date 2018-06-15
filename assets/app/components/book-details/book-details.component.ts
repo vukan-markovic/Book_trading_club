@@ -22,7 +22,7 @@ export class BookDetailsComponent implements OnInit {
                 private router: Router, private flashMessage: FlashMessagesService, 
                 private route: ActivatedRoute, private commentService: CommentService) {}
 
-    ngOnInit() {
+    ngOnInit () {
         this.bookService.getBook(this.route.snapshot.params['id'])
             .subscribe(
                 (book: Book) => {
@@ -55,19 +55,19 @@ export class BookDetailsComponent implements OnInit {
         this.flashMessage.show('Book is bought!', { cssClass: 'alert-success', timeout: 3000 });
     }
 
-    belongsToUser() {
+    belongsToUser () {
         if(this.authService.isLoggedIn())
             return this.user.firstName === this.book.username;
         return true;
     }
 
-    isAdmin() {
+    isAdmin () {
         if(this.authService.isLoggedIn())
             return this.user.email === 'vukan.markovic97@gmail.com';
         return false;
     }
 
-    onDelete() {
+    onDelete () {
         this.bookService.deleteBookAdmin(this.book)
             .subscribe(
                 result => {
@@ -78,11 +78,15 @@ export class BookDetailsComponent implements OnInit {
                 error => console.error(error));
     }
 
-    onComment() {
+    onComment () {
         this.router.navigate(['/add-comment/', this.book.bookId]);
     }
 
-    onUpdate() {
+    onUpdate () {
         this.router.navigate(['/update-book', this.book.bookId]);
+    }
+ 
+    isDefined () {
+        return this.book.about !== undefined;
     }
 }

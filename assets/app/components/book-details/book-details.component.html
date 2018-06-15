@@ -9,7 +9,7 @@
         <div class="card-body">
           <p class="card-text">          
             <span id="text">Genre:</span> {{ book.genre }}<br> 
-            <span id="text">About:</span> {{ book.about }}<br>
+            <span id="text" *ngIf="isDefined()">About:</span> {{ book.about }}<br>
             <span id="text">User:</span> {{ book.username }}
           </p>
         </div>
