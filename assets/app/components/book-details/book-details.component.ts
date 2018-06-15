@@ -87,6 +87,6 @@ export class BookDetailsComponent implements OnInit {
     }
  
     isDefined () {
-        return this.book.about.isDefined();
+        return this.book.about !== null;
     }
 }

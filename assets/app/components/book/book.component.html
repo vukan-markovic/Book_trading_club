@@ -1,6 +1,6 @@
 <div id="book" (click)="bookDetails()" *ngIf="belongsToUser()">   
     <span class="badge badge-success">{{ book.title }}</span>
-    <span class="badge badge-info">{{ book.price | currency }}</span> 
+    <span class="badge badge-info">{{ book.price | currency: "usd": 3 }}</span> 
     <span class="badge badge-success">{{ book.author }}</span>
     <span class="badge badge-danger">{{ book.genre }}</span>
     <span class="badge badge-info">{{ book.publishDate | date:"d/M/y" }}</span>
