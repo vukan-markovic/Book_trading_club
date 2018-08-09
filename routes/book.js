@@ -1,10 +1,10 @@
-//import express module
+// import express module
 const express = require('express');
 
-//define express router
+// define express router
 const router = express.Router();
 
-//import jsonwebtoke for authentication
+// import jsonwebtoke for authentication
 const jwt = require('jsonwebtoken');
 
 // importing models
@@ -13,6 +13,7 @@ const Book = require('../models/book');
 
 // GET request for all users books
 router.get('/', function (req, res) {
+    // find all books for specified user
     Book.find()
         .populate('user', 'firstName')
         .exec((err, books) => {
@@ -65,12 +66,10 @@ router.post('/', (req, res) => {
             title: 'No user found!', 
             error: {message: 'User with provided is not found in database'}
         });
-
         // empty object
         var book = {};
-
         // if user provided book cover image set that image as book cover image
-        if (req.body.image != null) {
+        if (req.body.image !== null) {
         book = new Book({
                 title: req.body.title,
                 price: req.body.price,
@@ -154,13 +153,10 @@ router.patch('/:id', (req, res) => {
         });
     });
 });
-
 // PATCH request for updating book by admin, admin can update any book
 router.patch('/admin/:id', (req, res) => {
-
     // find book in database with provided id
     Book.findById(req.params.id, (err, book) => {
-
         // check for errors
         if (err) return res.status(500).json({
             title: 'An error occurred', 
@@ -170,7 +166,6 @@ router.patch('/admin/:id', (req, res) => {
             title: 'No Book Found!', 
             error: {message: 'Book not found'}
         });
-
         // update book
         book.title = req.body.title;
         book.price = req.body.price;
@@ -192,13 +187,10 @@ router.patch('/admin/:id', (req, res) => {
 
 // DELETE request for deleting book
 router.delete('/:id', (req, res) => {
-
     // decode provided user token
     const decoded = jwt.decode(req.query.token);
-
     // find book in database with provided id
     Book.findById(req.params.id, (err, book) => {
-        
         // check for errors
         if (err) return res.status(500).json({
             title: 'An error occurred', 
@@ -212,7 +204,7 @@ router.delete('/:id', (req, res) => {
             title: 'Not Authenticated', 
             error: {message: 'Users do not match'}
         });
-                           
+                        
         // remove book from database
         book.remove((err, result) => {
             if (err) return res.status(500).json({
@@ -226,7 +218,6 @@ router.delete('/:id', (req, res) => {
 
 // DELETE request for deleting book by admin, admin can delete all books
 router.delete('/admin/:id', (req, res) => {
-
     // find book with provided id in database
     Book.findById(req.params.id, (err, book) => {
         
@@ -253,7 +244,6 @@ router.delete('/admin/:id', (req, res) => {
 
 // PATCH request for updating book that is solded
 router.patch('/sold/:id', (req, res) => {
-
     // find book with provided id in database
     Book.findById(req.params.id, (err, book) => {
 
@@ -263,7 +253,6 @@ router.patch('/sold/:id', (req, res) => {
             title: 'No Book Found!', 
             error: {message: 'Book not found'}
         });
-
         // update book
         book.userBuyerId = req.body.userBuyerId;
         book.solded = true;

@@ -37,9 +37,7 @@ export class AuthService {
         localStorage.clear();
     }
 
-    isLoggedIn() {
-        return localStorage.getItem('token') !== null;
-    }
+    isLoggedIn() { return localStorage.getItem('token') !== null; }
 
     getUser(userID: string) {
         return this.http.get('user/' + userID)

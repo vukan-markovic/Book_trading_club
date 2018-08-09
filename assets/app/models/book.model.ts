@@ -12,7 +12,8 @@ export class Book {
     bookId?: string;
     solded?: boolean;
 
-    constructor(title: string, price: number, genre: string, author: string, image: string, about?: string, username?: string, publishDate?: Date, userId?: string, userBuyerId?: string, bookId?: string, solded?: boolean) {
+    constructor(title: string, price: number, genre: string, author: string, image: string, about?: string, 
+                username?: string, publishDate?: Date, userId?: string, userBuyerId?: string, bookId?: string, solded?: boolean) {
         this.title = title;
         this.price = price;
         this.genre = genre;

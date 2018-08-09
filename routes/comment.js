@@ -1,10 +1,10 @@
-//import express module
+// import express module
 const express = require('express');
 
-//define express router
+// define express router
 const router = express.Router();
 
-//import jsonwebtoke for authentication
+// import jsonwebtoke for authentication
 const jwt = require('jsonwebtoken');
 
 // importing models
@@ -13,11 +13,15 @@ const Comment = require('../models/comment');
 
 // GET request for all comments for book
 router.get('/:id', (req, res) => {
+
+    // find book with provided id in database
     Book.findById(req.params.id, (err, book) => {
         if (err) return res.status(500).json({
             title: 'An error occurred on finding comment', 
             error: err
         });
+
+        // find and return all comments for that book
         Comment.find({book: book}, (err, comments) => {
             if (err) return res.status(500).json({
                 title: 'An error occurred on finding comment', 

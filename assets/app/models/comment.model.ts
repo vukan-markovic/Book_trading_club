@@ -7,7 +7,8 @@ export class Comment {
     bookId?: string;
     commentId?: string;
 
-    constructor(content: string, username: string, grade: number, tag: string, publishDate?: Date, bookId?: string, commentId?: string) {
+    constructor(content: string, username: string, grade: number, tag: string, publishDate?: Date, bookId?: string, 
+                commentId?: string) {
         this.content = content;
         this.username = username;
         this.grade = grade;

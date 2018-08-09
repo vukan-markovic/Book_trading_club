@@ -9,12 +9,12 @@ var User = new Schema({
     lastName: {type: String, required: true},
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
-    contry: String,
-    city: String,
-    postalCode: String,
-    address: String,
-    phoneNumber: String,
-    image: {type: String, default: "https://www.shareicon.net/data/2016/09/01/822711_user_512x512.png"},
+    contry: {type: String, required: true},
+    city: {type: String, required: true},
+    postalCode: {type: String, required: true},
+    address: {type: String, required: true},
+    phoneNumber: {type: String, required: true},
+    image: {type: String, default: "https://www.shareicon.net/data/2016/09/01/822711_user_512x512.png"}
 }, {
     usePushEach: true
 });

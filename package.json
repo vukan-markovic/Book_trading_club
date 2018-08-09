@@ -5,7 +5,13 @@
   "keywords": [
     "book",
     "online shop",
-    "blog"
+    "blog",
+    "register",
+    "login",
+    "comment",
+    "grade",
+    "buy",
+    "profile"
   ],
   "author": "Vukan Marković",
   "license": "MIT",

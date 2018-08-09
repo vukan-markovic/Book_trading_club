@@ -1,10 +1,10 @@
-//import express module
+// import express module
 const express = require('express');
 
-//define express router
+// define express router
 const router = express.Router();
 
-//import jsonwebtoke for authentication
+// import jsonwebtoke for authentication
 const jwt = require('jsonwebtoken');
 
 // importing models
@@ -13,6 +13,8 @@ const Post = require('../models/post');
 
 // GET request all posts
 router.get('/', (req, res) => {
+
+    // find and return all posts from database if no errors
     Post.find({}, ((err, posts) => {
         if (err) return res.status(500).json({title: 'An error occurred', error: err});
         res.status(200).json({message: 'Success', obj: posts});
@@ -22,7 +24,7 @@ router.get('/', (req, res) => {
 // GET request for one post
 router.get('/:id', function (req, res) {
 
-    // find post with provided id
+    // find and return post with provided id if no errors
     Post.findById(req.params.id, (err, post) => {
             if (err) return res.status(500).json({title: 'An error occurred', error: err});
             console.log(post);
@@ -38,19 +40,15 @@ router.use('/', (req, res, next) => {
     })
 });
 
-
 // POST request for adding new post
 router.post('/', (req, res) => {
-
     // decode provided user token
     const decoded = jwt.decode(req.query.token);
-
     // find user with provided id
     User.findById(decoded.user._id, (err, user) => {
         
         // check for error
         if (err) return res.status(500).json({title: 'An error occurred', error: err});
-        
         // create new post
         const post = new Post({
             title: req.body.title, 
@@ -67,12 +65,10 @@ router.post('/', (req, res) => {
     });
 });
 
-// PATCH request for updating post by admin
+// PATCH request for updating post, posts can be updated only by admin
 router.patch('/:id', (req, res) => {
-
-    // find book in database with provided id
+    // find post in database with provided id
     Post.findById(req.params.id, (err, post) => {
-
         // check for errors
         if (err) return res.status(500).json({
             title: 'An error occurred', 
@@ -82,11 +78,9 @@ router.patch('/:id', (req, res) => {
             title: 'No Post Found!', 
             error: {message: 'Post not found'}
         });
-
         // update post
         post.title = req.body.title;
         post.content = req.body.content;
-        
         // save updated post to database
         post.save((err, result) => {
             if (err) return res.status(500).json({
@@ -98,7 +92,7 @@ router.patch('/:id', (req, res) => {
     });
 });
 
-// DELETE request for deleting post by admin
+// DELETE request for deleting post, posts can be deleted only by admin
 router.delete('/:id', (req, res) => {
 
     // find post with provided id

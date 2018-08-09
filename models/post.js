@@ -2,9 +2,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// importing User model
-const User = require('./user');
-
 // Post Schema
 var Post = new Schema({
     title: {type: String, required: true},

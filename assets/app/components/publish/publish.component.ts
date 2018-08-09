@@ -21,7 +21,6 @@ export class PublishComponent implements OnInit {
     ngOnInit() {
         if (!this.authService.isLoggedIn())
             this.router.navigate(['/login']);
-
         this.authService.getUser(localStorage.getItem('userId'))
             .subscribe((user: User) => {
                     this.user = user;

@@ -24,7 +24,6 @@ export class AddBookComponent implements OnInit {
   ngOnInit() {
     if (!this.authService.isLoggedIn())
       return this.router.navigate(['/login']);
-
     this.authService.getUser(localStorage.getItem('userId'))
       .subscribe((user: User) => {
           this.user = user;
@@ -33,10 +32,8 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit() {
-    const book = new Book(this.form.value.title, this.form.value.price, this.form.value.genre, 
-                          this.form.value.author, this.form.value.image, this.form.value.about,
-                          this.user.firstName);
-    
+    const book = new Book(this.form.value.title, this.form.value.price, this.form.value.genre, this.form.value.author, this.form.value.image, this.form.value.about, this.user.firstName);
+
     this.bookService.addBook(book)
       .subscribe(
         data => {
@@ -44,7 +41,6 @@ export class AddBookComponent implements OnInit {
           this.flashMessage.show('New book is added!', { cssClass: 'alert-success', timeout: 3000 });
         },
         error => console.error(error));
-
     this.form.resetForm();
     this.router.navigate(['/profile']);  
   }
