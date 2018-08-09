@@ -36,6 +36,11 @@ const APP_ROUTES: Routes = [
     { path: 'change-profile-picture', component: ChangeProfilePictureComponent, data: { title: 'Change profile picture'}},
     { path: 'add-comment/:id', component: AddCommentComponent, data: { title: 'Add comment'}},
     { path: 'show-info/:id', component: ShowInfoComponent, data: { title: 'Show info'}},
+    { path: 'home', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
+    { path: 'post', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
+    { path: 'comment', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
+    { path: 'book', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
+    { path: 'user', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
     { path: '**', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
 ];
 
