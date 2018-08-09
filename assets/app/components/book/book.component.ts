@@ -14,8 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class BookComponent implements OnInit{
     @Input() book: Book;
 
-    constructor(private bookService: BookService, private router: Router, 
-                private flashMessage: FlashMessagesService, private authService: AuthService) {}
+    constructor(private bookService: BookService, private router: Router, private flashMessage: FlashMessagesService, private authService: AuthService) {}
     
     ngOnInit(){}
 

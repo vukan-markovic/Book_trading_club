@@ -16,9 +16,7 @@ export class UpdatePostComponent implements OnInit {
   post: any = {};
   @ViewChild('f') form: NgForm;
 
-  constructor(private postService: PostService, private router: Router, 
-              private authService: AuthService, private route: ActivatedRoute,
-              private flashMessage: FlashMessagesService) {}
+  constructor(private postService: PostService, private router: Router, private authService: AuthService, private route: ActivatedRoute, private flashMessage: FlashMessagesService) {}
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {

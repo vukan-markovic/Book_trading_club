@@ -1,15 +1,19 @@
 // importing modules
 const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 
+// define express router
+const router = express.Router();
+
 // importing user model
 const User = require('../models/user');
 
-// GET request for all users
+// GET request for all users, request can be sent only by admin
 router.get('/', (req, res) => {
+
+    // find and return all users from database
     User.find({}, ((err, users) => {
       if (err) return res.status(500).json({title: 'An error occurred', error: err});
       res.status(200).json({message: 'Success', obj: users});
@@ -19,7 +23,7 @@ router.get('/', (req, res) => {
 // GET request for one user
 router.get('/:id', function (req, res) {
 
-    // find user with provided id in database
+    // find and return user with provided id in database
     User.findById(req.params.id, (err, user) => {
             if (err) return res.status(500).json({title: 'An error occurred', error: err});
             res.status(200).json({message: 'Success', obj: user});
@@ -46,6 +50,8 @@ router.post('/register', (req, res) => {
     user.save((err, result) => {
         if (err) return res.status(500).json({title: 'An error occurred', error: err});
         res.status(201).json({message: 'User created', obj: result});
+        
+        // send user welcome email after registration
         sendEmail(user);
     });
 });
@@ -70,7 +76,7 @@ router.post('/login', (req, res) => {
         });
         
         // login is success, create token for that user
-        const token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+        const token = jwt.sign({user: user}, 'secret', {expiresIn: 10800});
         res.status(200).json({message: 'Successfully logged in', token: token, userId: user._id});
     });
 });
@@ -83,7 +89,6 @@ router.patch('/:id', (req, res) => {
 
     /// find user with provided id in database
     User.findById(req.params.id, (err, user) => {
-
         // check for errors
         if (err) return res.status(500).json({title: 'An error occurred', error: err});
         if (!user) return res.status(500).json({
@@ -94,10 +99,8 @@ router.patch('/:id', (req, res) => {
             title: 'Not Authenticated', 
             error: {message: 'Users do not match'}
         });
-
         // update user profile image
         user.image = req.body.image;
-
         // save updated user to database
         user.save((err, result) => {
             if (err) return res.status(500).json({title: 'An error occurred', error: err});
@@ -115,20 +118,15 @@ function sendEmail (user) {
           pass: 'book123!'
         }
       });
-      
       var mailOptions = {
         from: 'booktadingclub@gmail.com',
         to: user.email,
         subject: 'Welcome to book trading club!',
         html: '<h1>Greeting message</h1><img src="http://www.off-the-recordmessaging.com/wp-content/uploads/2016/04/Thanks-For-Joining-Us1.jpg" /><p>We hope that you will enjoy in our site, find book that you looking for and sell some books too!</p>'
       };
-      
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) console.log(error);
+        else console.log('Email sent: ' + info.response);
       });
 }
 
