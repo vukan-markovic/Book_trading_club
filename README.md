@@ -1,4 +1,4 @@
-# BOOK TRADING CLUB MEAN 2 WEB APPLICATION
+# BOOK TRADING CLUB MEAN 2 WEB APPLICATION 
 
 Registered users have the opportunity to place books for sale, buy books from other users, participate in the forum, evaluate and comment on books, as well as experience with specific users in the store. Visitors who are not registered have the opportunity just to 
 view available books and published forum posts. 
@@ -17,3 +17,5 @@ To run locally:
 * Run `npm start`
 
 Application will be launched on http://localhost:3000/.
+
+![alt text](http://blog.onclickinnovations.com/wp-content/uploads/2016/12/mean.png) ![alt text](https://d30y9cdsu7xlg0.cloudfront.net/png/5020-200.png)
