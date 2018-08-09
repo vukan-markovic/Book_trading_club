@@ -19,29 +19,29 @@ import { UpdatePostComponent } from './components/update-post/update-post.compon
 import { ShowInfoComponent } from './components/showinfo/show-info.component';
 
 const APP_ROUTES: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full', data: { title: 'Home' }},
+    { path: '', component: HomeComponent, pathMatch: 'full', data: { title: 'Home' } },
     { path: 'about', component: AboutComponent, data: { title: 'About'} },
-    { path: 'add-book', component: AddBookComponent, data: { title: 'Add book'}},
-    { path: 'blog', component: BlogComponent, data: { title: 'Blog'}},
-    { path: 'users', component: UsersComponent, data: { title: 'Users'}},
-    { path: 'book-details/:id', component: BookDetailsComponent, data: { title: 'Book details'}},
-    { path: 'login', component: LoginComponent, data: { title: 'Login'}},
+    { path: 'add-book', component: AddBookComponent, data: { title: 'Add book'} },
+    { path: 'blog', component: BlogComponent, data: { title: 'Blog'} },
+    { path: 'users', component: UsersComponent, data: { title: 'Users'} },
+    { path: 'book-details/:id', component: BookDetailsComponent, data: { title: 'Book details'} },
+    { path: 'login', component: LoginComponent, data: { title: 'Login'} },
     { path: 'logout', component: LogoutComponent, data: { title: 'Logout'} },
-    { path: 'post-details/:id', component: PostDetailsComponent, data: { title: 'Post details'}},
-    { path: 'profile', component: ProfileComponent, data: { title: 'Profile' }}, 
-    { path: 'publish', component: PublishComponent, data: { title: 'Publish'}},
-    { path: 'register', component: RegisterComponent, data: { title: 'Register'}},
-    { path: 'update-book/:id', component: UpdateBookComponent, data: { title: 'Update book'}},
-    { path: 'update-post/:id', component: UpdatePostComponent, data: { title: 'Update post'}},
-    { path: 'change-profile-picture', component: ChangeProfilePictureComponent, data: { title: 'Change profile picture'}},
-    { path: 'add-comment/:id', component: AddCommentComponent, data: { title: 'Add comment'}},
-    { path: 'show-info/:id', component: ShowInfoComponent, data: { title: 'Show info'}},
-    { path: 'home', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
-    { path: 'post', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
-    { path: 'comment', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
-    { path: 'book', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
-    { path: 'user', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
-    { path: '**', component: PageNotFoundComponent , data: { title: 'Invalid path'}}
+    { path: 'post-details/:id', component: PostDetailsComponent, data: { title: 'Post details'} },
+    { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } }, 
+    { path: 'publish', component: PublishComponent, data: { title: 'Publish'} },
+    { path: 'register', component: RegisterComponent, data: { title: 'Register'} },
+    { path: 'update-book/:id', component: UpdateBookComponent, data: { title: 'Update book'} },
+    { path: 'update-post/:id', component: UpdatePostComponent, data: { title: 'Update post'} },
+    { path: 'change-profile-picture', component: ChangeProfilePictureComponent, data: { title: 'Change profile picture'} },
+    { path: 'add-comment/:id', component: AddCommentComponent, data: { title: 'Add comment'} },
+    { path: 'show-info/:id', component: ShowInfoComponent, data: { title: 'Show info'} },
+    { path: 'home', component: PageNotFoundComponent , data: { title: 'Invalid path'} },
+    { path: 'post', component: PageNotFoundComponent , data: { title: 'Invalid path'} },
+    { path: 'comment', component: PageNotFoundComponent , data: { title: 'Invalid path'} },
+    { path: 'book', component: PageNotFoundComponent , data: { title: 'Invalid path'} },
+    { path: 'user', component: PageNotFoundComponent , data: { title: 'Invalid path'} },
+    { path: '**', component: PageNotFoundComponent , data: { title: 'Invalid path'} }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
