@@ -115,7 +115,7 @@ function sendEmail (user) {
         service: 'gmail',
         auth: {
           user: 'booktadingclub@gmail.com',
-          pass: 'book123!'
+          pass: 'booktrading123!'
         }
       });
       var mailOptions = {
