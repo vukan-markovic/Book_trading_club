@@ -20,4 +20,4 @@ Application will be launched on http://localhost:3000/.
 
 ![MEAN stack](http://blog.onclickinnovations.com/wp-content/uploads/2016/12/mean.png) ![Books](https://d30y9cdsu7xlg0.cloudfront.net/png/5020-200.png)
 
-Documentation: https://vukan-markovic.github.io/Book_trading_club/.
+[Documentation](https://vukan-markovic.github.io/Book_trading_club/)
