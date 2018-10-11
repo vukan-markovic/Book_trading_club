@@ -53,7 +53,7 @@
     "express": "~4.14.0",
     "hbs": "~3.1.0",
     "jsonwebtoken": "^5.7.0",
-    "mongoose": "^4.4.12",
+    "mongoose": "^4.13.17",
     "mongoose-unique-validator": "^1.0.2",
     "morgan": "~1.6.1",
     "nodemailer": "^4.6.5",
