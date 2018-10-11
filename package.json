@@ -22,7 +22,7 @@
   },
   "homepage": "https://bookclubtrading.herokuapp.com/",
   "engines": {
-    "node": "9.10.1"
+    "node": "9.11.2"
   },
   "scripts": {
     "start": "node ./bin/www",
