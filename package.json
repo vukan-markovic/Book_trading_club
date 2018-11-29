@@ -44,7 +44,7 @@
     "@angular/upgrade": "4.4.7",
     "angular2-flash-messages": "2.0.5",
     "bcryptjs": "2.4.3",
-    "body-parser": "1.15.2",
+    "body-parser": "1.18.3",
     "boostrap": "2.0.0",
     "cookie-parser": "1.4.3",
     "core-js": "2.5.7",
