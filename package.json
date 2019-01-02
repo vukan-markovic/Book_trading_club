@@ -61,7 +61,7 @@
     "password-validator": "4.1.1",
     "reflect-metadata": "0.1.12",
     "rxjs": "6.3.3",
-    "serve-favicon": "2.3.2",
+    "serve-favicon": "2.5.0",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
