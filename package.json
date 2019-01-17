@@ -57,7 +57,7 @@
     "mongoose-unique-validator": "2.0.2",
     "morgan": "1.6.1",
     "nodemailer": "5.0.0",
-    "npm": "6.4.1",
+    "npm": "6.6.0",
     "password-validator": "4.1.1",
     "reflect-metadata": "0.1.12",
     "rxjs": "6.3.3",
